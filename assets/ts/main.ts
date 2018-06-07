@@ -15,7 +15,6 @@ class Game {
 
 		requestAnimationFrame(() => this.gameLoop())
 	}
-
 }
 
 window.addEventListener("load", () => new Game())
