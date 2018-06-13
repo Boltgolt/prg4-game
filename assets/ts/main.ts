@@ -4,18 +4,20 @@ class Game {
 	private thomas:Thomas
 	private bob:Bob
 
+
 	private buttonLeft:Boolean = false
 	private buttonRight:Boolean = false
-	private buttonJump:Boolean = false
 
+	private jumpHeight:number = heightToPixel(7.5)
+	private jumpIndex:number = -1
 
 	private active:any
 	private activeIndex:number = 0
 	private activeArr:Array<any> = []
 
 	constructor() {
-		this.thomas = new Thomas(widthToPixel(50) - heightToPixel(2.5))
-		this.bob = new Bob(widthToPixel(150) - heightToPixel(5))
+		this.thomas = new Thomas(widthToPixel(25) - heightToPixel(2.5))
+		this.bob = new Bob(widthToPixel(60) - heightToPixel(5))
 
 		this.active = this.thomas
 		this.activeArr.push(this.thomas)
@@ -39,7 +41,8 @@ class Game {
 				break
 			}
 			case "KeyW": {
-				this.buttonJump = setTo
+				if (!setTo) break
+				if (this.jumpIndex < 0) this.jumpIndex = 0
 				break
 			}
 			case "Space": {
@@ -53,6 +56,7 @@ class Game {
 				}
 
 				this.active = this.activeArr[this.activeIndex]
+				document.getElementById("indicator").className = this.active.id
 				break
 			}
 		}
@@ -62,15 +66,25 @@ class Game {
 		if (this.buttonLeft)  this.active.x -= this.active.speed
 		if (this.buttonRight) this.active.x += this.active.speed
 
-		if (this.activeArr.length == 1 && this.active.x > widthToPixel(100)) {
+		if (this.activeArr.length == 1 && this.active.x > widthToPixel(10)) {
 			this.activeArr.push(this.bob)
 			document.getElementById("indicator").children[1].classList.remove("hidden")
 		}
 
-		this.active.update()
+		if (this.jumpIndex > -1) {
+			this.active.y = Math.pow(this.jumpIndex / 2 - Math.sqrt(this.jumpHeight), 2) * -1 + this.jumpHeight
+
+			this.jumpIndex++
+
+			if (this.active.y <= 0 && this.jumpIndex != 1) {
+				this.jumpIndex = -1
+				this.active.y = 0
+			}
+		}
+
+		this.active.update(this.activeArr)
 
 		this.focusCamera()
-
 
 		requestAnimationFrame(() => this.update())
 	}
