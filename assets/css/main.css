@@ -1,59 +1,32 @@
 body {
-	background: linear-gradient(#454654, #2C2C39);
 	height: 100vh;
 	width: 100vw;
-	/* overflow: hidden; */
 	margin: 0;
-}
-
-#ground {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	height: 5vh;
-	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background: #000;
 }
 
-.player {
-	position: absolute;
-	bottom: 5vh;
-	left: 5vh;
-}
-
-.player#thomas {
-	background: #CC8942;
-	height: 5vh;
-	width: 5vh;
-}
-
-.player#bob {
-	background: #B8589A;
-	height: 10vh;
-	width: 10vh;
-}
-
-#groundContainer {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 95vh;
-	width: 400vh;
+#game {
+	background: linear-gradient(#000, #353544);
+	font-size: 0;
+	position: relative;
 }
 
 #indicator {
-	position: fixed;
-	top: 3vh;
-	right: 3vh;
+	position: absolute;
+	top: 300px;
+	right: 30px;
 }
 
 #indicator > div {
 	opacity: .3;
 	border-radius: 100%;
-	height: 3vh;
-	width: 3vh;
-	margin-bottom: 3vh;
-	margin-left: 0vh;
+	height: 30px;
+	width: 30px;
+	margin-bottom: 30px;
+	margin-left: 0;
 	transform: scale(1);
 	transition: opacity .3s, transform .5s cubic-bezier(.1,1.11,.75,6);
 }
