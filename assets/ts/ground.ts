@@ -9,7 +9,6 @@ class Ground {
 		this.x = x
 		this.y = y
 
-
 		// Create an empty sprite as a container
 		this.sprite = context.physics.add.staticSprite(x, y, "ground")
 

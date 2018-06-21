@@ -50,7 +50,6 @@ class Game {
 		this.load.image("thomas", "assets/img/thomas.png");
 		this.load.image("bob", "assets/img/bob.png");
 		this.load.image("ground", "assets/img/ground.png");
-
 	}
 
 	private create(context) :void {
@@ -70,7 +69,7 @@ class Game {
 		}
 
 		const textFormat = {
-			fontFamily: "Arial",
+			fontFamily: "Comfortaa",
 			fontSize: 20,
 			color: "#4D4D4D"
 		}
@@ -111,8 +110,11 @@ class Game {
 
 	private handleKey(event:KeyboardEvent) :void {
 		let setTo = event.type == "keydown"
-
 		switch(event.code) {
+			case "Enter": {
+				document.getElementById("start").style.opacity = "0"
+				break
+			}
 			case "KeyA": {
 				this.active.sprite.body.setVelocity(-200 * (setTo ? 1 : 0), this.active.sprite.body.velocity.y)
 				break

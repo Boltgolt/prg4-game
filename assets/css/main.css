@@ -6,6 +6,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: #000;
+	font-family: "Comfortaa", cursive;
 }
 
 #game {
@@ -52,4 +53,29 @@ body {
 #indicator.bob > div:nth-child(2),
 #indicator.henk > div:last-child {
 	opacity: 1;
+}
+
+#start {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	opacity: 1;
+	transition: opacity .8s;
+}
+
+#start span:first-child {
+	font-size: 50px;
+	margin-top: 120px;
+	margin-bottom: 20px;
+	display: block;
+}
+
+#start span:last-child {
+	font-size: 20px;
+	opacity: .7;
 }
