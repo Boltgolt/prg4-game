@@ -91,7 +91,7 @@ Bob is een PlayerObject, en andersom. Door een centraal PlayerObject te extenden
 
 ## Klassendiagram
 
-NIET VERGETEN
+![](https://i.imgur.com/tUbJPcA.png)
 
 ## Peer review
 

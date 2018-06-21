@@ -55,7 +55,7 @@ body {
 	opacity: 1;
 }
 
-#start {
+#start, #end {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -78,4 +78,13 @@ body {
 #start span:last-child {
 	font-size: 20px;
 	opacity: .7;
+}
+
+#end {
+	opacity: 0;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 30px;
+	box-sizing: border-box;
+	color: #878787;
 }

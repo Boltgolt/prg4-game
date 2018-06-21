@@ -77,7 +77,6 @@ class Game {
 		this.add.text(445, 405, "Try the A and D keys", textFormat)
 		this.add.text(1325, 405, "And maybe W as well", textFormat)
 		this.add.text(2320, 405, "Tip: SPACE", textFormat)
-		this.add.text(4320, 405, "To be continued..?", textFormat)
 
 		this.cameras.main.startFollow(game.active.sprite)
 		this.cameras.main.setBounds(0, 0, Infinity, 900)
@@ -100,6 +99,10 @@ class Game {
 		if (game.activeArr.length == 1 && this.cameras.main.scrollX > 1600) {
 			game.activeArr.push(game.bob)
 			document.getElementById("indicator").children[1].classList.remove("hidden")
+		}
+
+		if (this.cameras.main.scrollX >= 3350) {
+			document.getElementById("end").style.opacity = "1"
 		}
 
 		for (let blob of game.activeArr) {
